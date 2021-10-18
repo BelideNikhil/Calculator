@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+:root{
+    --operator-color:#dfdede;
+    --keys-color:whitesmoke;
+    --display-color:#112031;
+    --equal-to:#ec7526;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8CA1A5;
+}
+.container{
+    width:360px;
+    height: max-content;
+    margin: auto;
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.calculator_display{
+    height: 100px;
+    background-color: var(--display-color);
+    color: whitesmoke;
+    text-align: right;
+    font-size: 26px;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+.left_displays,.right_displays{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    padding: 14px;
+}
+.upper_display,.temporary_display{
+    opacity: 0.7;
+    font-size:17px;
+}
+.left_displays{
+    text-align: left;
+}
+.calculator_keys{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-gap: 1.5px;
+    grid-template-areas: 
+    ". . . ."
+    "seven eight nine equal"
+    "four five six equal"
+    "one two three equal"
+    "zero dot clear equal";
+}
+.calculator_keys>*{
+    padding: 18px 24px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+[data-type="operator"]{
+    background-color: var(--operator-color);
+}
+
+[data-type="number"]{
+    background-color:var(--keys-color);
+}
+[data-type="operator"]:active,
+[data-type="number"]:active,
+.clear:active{
+    background-color: #d4d3d3;
+}
+
+.one{
+    grid-area: one;
+}
+.two{
+    grid-area: two;
+}
+.three{
+    grid-area: three;
+}
+.four{
+    grid-area: four;
+}
+.five{
+    grid-area: five;
+}
+.six{
+    grid-area: six;
+}
+.seven{
+    grid-area: seven;
+}
+.eight{
+    grid-area: eight;
+}
+.nine{
+    grid-area: nine;
+}
+.zero{
+    grid-area: zero;
+}
+.dot{
+    grid-area: dot;
+}
+.clear{
+    grid-area: clear;
+}
+.equal{
+    grid-area: equal;
+    background-color: var(--equal-to);
+}
+.equal:active{
+    background-color: #da661a;
+}
+footer{
+    margin-top: 5rem;
+    width: 100%;
+    text-align: center;
+}
+@media screen and (max-width:400px) {
+    .container{
+        width:310px;
+    }
+}
